@@ -1,3 +1,5 @@
+# Charlotte Lim wfr2pj
+
 # This is your first coding assignment for Computational BME.
 # As discussed in class, feel free to use AI tools to help you complete this assignment, but remember to cite them.
 # I encourage you to try the problems yourself first and only use AI tools when you are stuck to benefit your learning. 
@@ -98,14 +100,15 @@ def find_fib_above_limit(limit):
     :return: index of the first number above limit
     :rtype: integer
     """
-    a = "0"
-    b = "1"
+    a = 0
+    b = 1
+    index = 0
 
-    while a <= limit:
+    while a <= limit: #TypeError: <= can't be used with an int (limit) and a string (a)
         next_value = a + b
         a = b
         b = next_value
-        index += 1
+        index += 1 # UnboundLocalError: index can't have 1 addd to it since it doesn't have any value
 
     return index
 
