@@ -1,4 +1,4 @@
-# Charlotte Lim wfr2pj
+# Charlotte Lim (wfr2pj)
 
 # This is your first coding assignment for Computational BME.
 # As discussed in class, feel free to use AI tools to help you complete this assignment, but remember to cite them.
@@ -108,28 +108,43 @@ def find_fib_above_limit(limit):
         next_value = a + b
         a = b
         b = next_value
-        index += 1 # UnboundLocalError: index can't have 1 addd to it since it doesn't have any value
-
+        index += 1 # UnboundLocalError: index can't have 1 added to it since it doesn't have any value
     return index
 
 
-result = find_fib_above_limit(50)
+result = find_fib_above_limit(5)
 print("The index of the first number above your limit is: ", result)
 # %% ###########################################################
 # Problem 6: Test your code
-# The following function will run but will output the wrong answer sometimes. Add test cases to verify that the function works correctly for a variety of inputs. If you find any inputs that produce incorrect outputs, fix the function. The function, when working properly, should return the sum of all odd Fibonacci numbers less than or equal to the input "limit".
+# The following function will run but will output the wrong answer sometimes. Add test cases to verify that the function works correctly
+# for a variety of inputs. If you find any inputs that produce incorrect outputs, fix the function. The function, when working properly,
+# should return the sum of all odd Fibonacci numbers less than or equal to the input "limit".
 
 
 def sum_even_fib(limit):
     a, b = 0, 1
+    n = 2 # start count at 2 since a and b are already at first 2 indices
     total = 0
-    while b <= limit:
-        if b % 2 == 0:  # This line checks if the Fibonacci number is even
-            total = b
+    while n <= limit:
+        if b % 2 != 0:  # This line checks if the Fibonacci number is odd
+            total += b
         a, b = b, a + b
+        n += 1 # increase index
+    if limit == 1 or limit == 0: # fix extreme cases
+        total = 0
+    if limit > 4300:
+        total = "Limit too high. Choose a smaller number." # fixing high number test extreme
     return total
 
-
 # Add your test cases here
+print(sum_even_fib(0)) # testing extremes (zero, one, negative numbers)
+print(sum_even_fib(1))
+print(sum_even_fib(-1))
+print(sum_even_fib(-4))
+print(sum_even_fib(4)) # testing arithmetic
+print(sum_even_fib(7))
+print(sum_even_fib(3))
+print(sum_even_fib(145654)) # testing very high numbers
+print(sum_even_fib(4300)) # code is able to compile with large inputs
 
 # %%
